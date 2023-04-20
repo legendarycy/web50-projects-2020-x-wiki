@@ -1,0 +1,20 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Search Results - {{query}}
+{% endblock %}
+
+{% block body %}
+    <br>
+    {% if q_results %}
+        <h2>"{{query}}" not found. Did you mean:</h2>
+        <ul>
+            {% for result in q_results %}
+                <li><a href = "wiki/{{result}}">{{result}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2> "{{query}}" not found. No suggestions available.</h2>
+    {% endif %}
+
+{% endblock %}
